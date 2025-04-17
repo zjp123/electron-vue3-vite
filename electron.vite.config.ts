@@ -75,7 +75,8 @@ export default defineConfig(({ mode }) => {
           resolvers: [ElementPlusResolver()],
           // 不需要在每个文件中写 import { ref } from 'vue'
           imports: ['vue', 'vue-router'],
-          dts: 'src/auto-imports.d.ts',
+          // 使用绝对路径确保文件生成在项目根目录
+          dts: path.resolve(__dirname, 'auto-imports.d.ts'),
         }),
         Components({
           resolvers: [
@@ -84,7 +85,8 @@ export default defineConfig(({ mode }) => {
               // directives: true,
             })
           ],
-          dts: 'src/components.d.ts',
+          // 使用绝对路径确保文件生成在项目根目录
+          dts: path.resolve(__dirname, 'components.d.ts'),
         })
       ],
       css: {
